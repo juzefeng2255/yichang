@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>易畅网-婚嫁</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/marry.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<div class="wrap" style="height: 100px;">
+    <div class="logo"></div>
+</div>
+<div class="nav">
+    <div class="wrap">
+        <ul>
+            <li><a href="index.html">易畅首页</a></li>
+            <li><a href="###">婚嫁频道</a></li>
+            <li><a href="###">婚庆服务</a></li>
+            <li><a href="###">婚纱摄影</a></li>
+            <li><a href="###">征婚交友</a></li>
+            <li><a href="###">情感空间</a></li>
+            <li><a href="###">房产信息</a></li>
+            <li><a href="###">房产信息</a></li>
+            <li><a href="###">环保建材</a></li>
+            <li><a href="###">都市卡</a></li>
+            <li><a href="###">平谷论坛</a></li>
+            <li><a href="###">平谷微博</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="content1 clearfix">
+        <div class="lunbo fl ">
+            <ul class="imgs">
+                <li><img src="images/mar-banner.png" width="910" height="560" alt="1"></li>
+                <li><img src="images/mar-banner2.png" width="910" height="560" alt="1"></li>
+                <li><img src="images/mar-banner3.png" width="910" height="560" alt="1"></li>
+                <li><img src="images/mar-banner2.png" width="910" height="560" alt="1"></li>
+                <li><img src="images/mar-banner.png" width="910" height="560" alt="1"></li>
+            </ul>
+            <ol class="btns">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <a href="###" class="prev">&lt;</a>
+            <a href="###" class="next">&gt;</a>
+        </div>
+
+        <script>
+            var t=null;
+            var index=0; // 设置初始图片序号
+            var speed=500; // 一幅图片切换时间
+            var interval=2000; // 自动轮播图片的切换时间间隔
+            var w=$('.lunbo').width(); // 图片宽度
+            var n=$('.imgs').find('li').size(); // 图片总数(追加辅助图片之前)
+            var btns=$('.btns').find('li'); // 所有圆点
+            var first=$('.imgs').find('li').first(); // 图片列表中的第一幅图
+            var last=$('.imgs').find('li').last(); // 图片列表中的最后一幅图
+            $('.imgs').append(first.clone()); // 在图片列表最后添加上第一幅图
+            $('.imgs').prepend(last.clone()); // 在图片列表最前添加上最后一幅图
+            n=$('.imgs').find('li').size(); // 图片总数(追加辅助图片之后)
+            $('.imgs').width(w*n).css('left',-(index+1)*w+'px'); // 设置.imgs的宽度，并且根据index的设置，显示相应的图片
+            setBtns(); // 根据index的设置，设置圆点的默认激活位置
+            function move() { // 显示指定的图片
+                $('.imgs').animate({
+                        left: -(index+1)*w+'px'},
+                    speed, function() { // 回调函数，越界处理
+                        if($('.imgs').css('left')=='-'+w*(n-1)+'px'){
+                            $('.imgs').css('left','-'+w+'px');
+                        }
+                        if($('.imgs').css('left')=='0px'){
+                            $('.imgs').css('left','-'+w*(n-2)+'px');
+                        }
+                    });
+                // 越界处理
+                if(index==n-2){
+                    index=0;
+                }
+                if(index==-1){
+                    index=n-3;
+                }
+            }
+            function setBtns() {
+                btns.eq(index).addClass('active').siblings().removeClass('active'); // 将index对应的按钮添加激活类，其他按钮去掉激活类
+            }
+            $('.prev').click(function() {
+                index--;
+                move();
+                setBtns();
+            });
+            $('.next').click(function() {
+                index++;
+                move();
+                setBtns();
+            });
+            btns.click(function() {
+                index=$(this).index();
+                move();
+                setBtns();
+            });
+            $('.lunbo').hover(function() {
+                clearInterval(t);
+            },function() {
+                t=setInterval("$('.next').click()",interval);
+            });
+            $('.lunbo').mouseout();
+        </script>
+        <div class="bussin fr clearfix">
+            <ul>
+                <li>合作商家<span class="fr">我要加入</span></li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+                <li>巴黎之约婚纱摄影</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content2 clearfix">
+        <h4>婚庆公司</h4>
+        <ul>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+            <li><img src="images/mar-hq1.png" width="183" height="98" alt=""></li>
+        </ul>
+    </div>
+    <div class="content3 clearfix">
+        <div class="left fl clearfix">
+            <h4>婚纱摄影</h4>
+            <div class="fl">
+                <div class="fl hsimg">
+                    <img src="images/mar-hs1.png" width="232" height="351" alt="">
+                </div>
+                <div class="fr">
+                    <h6>陪伴与懂得，比爱情更重要</h6>
+                    <p>有人说，“陪伴才是最好的爱，比起我懂、我来、我能都要来的弥足珍贵的，是我在。这城市太大，门槛太多，她和他都一个人跑了好远，实在到不了远方也没关系</p>
+                    <ul>
+                        <li>招聘摄像后期，全职兼职均可</li>
+                        <li>懂你的人，会用你所需要的方式去爱你</li>
+                        <li>情侣间三观非常合是种什么体验？</li>
+                        <li>真的有男人喜欢“不独立”的女生么？</li>
+                    </ul>
+                    <ol class="clearfix">
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="left fr clearfix">
+            <h4>婚庆服务</h4>
+            <div class="fl">
+                <div class="fl hsimg">
+                    <img src="images/mar-hs1.png" width="232" height="351" alt="">
+                </div>
+                <div class="fr">
+                    <h6>陪伴与懂得，比爱情更重要</h6>
+                    <p>有人说，“陪伴才是最好的爱，比起我懂、我来、我能都要来的弥足珍贵的，是我在。这城市太大，门槛太多，她和他都一个人跑了好远，实在到不了远方也没关系</p>
+                    <ul>
+                        <li>招聘摄像后期，全职兼职均可</li>
+                        <li>懂你的人，会用你所需要的方式去爱你</li>
+                        <li>情侣间三观非常合是种什么体验？</li>
+                        <li>真的有男人喜欢“不独立”的女生么？</li>
+                    </ul>
+                    <ol class="clearfix">
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content3 clearfix">
+        <div class="left fl clearfix">
+            <h4>婚纱摄影</h4>
+            <div class="fl">
+                <div class="fl hsimg">
+                    <img src="images/mar-hs1.png" width="232" height="351" alt="">
+                </div>
+                <div class="fr">
+                    <h6>陪伴与懂得，比爱情更重要</h6>
+                    <p>有人说，“陪伴才是最好的爱，比起我懂、我来、我能都要来的弥足珍贵的，是我在。这城市太大，门槛太多，她和他都一个人跑了好远，实在到不了远方也没关系</p>
+                    <ul>
+                        <li>招聘摄像后期，全职兼职均可</li>
+                        <li>懂你的人，会用你所需要的方式去爱你</li>
+                        <li>情侣间三观非常合是种什么体验？</li>
+                        <li>真的有男人喜欢“不独立”的女生么？</li>
+                    </ul>
+                    <ol class="clearfix">
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="left fr clearfix">
+            <h4>婚庆服务</h4>
+            <div class="fl">
+                <div class="fl hsimg">
+                    <img src="images/mar-hs1.png" width="232" height="351" alt="">
+                </div>
+                <div class="fr">
+                    <h6>陪伴与懂得，比爱情更重要</h6>
+                    <p>有人说，“陪伴才是最好的爱，比起我懂、我来、我能都要来的弥足珍贵的，是我在。这城市太大，门槛太多，她和他都一个人跑了好远，实在到不了远方也没关系</p>
+                    <ul>
+                        <li>招聘摄像后期，全职兼职均可</li>
+                        <li>懂你的人，会用你所需要的方式去爱你</li>
+                        <li>情侣间三观非常合是种什么体验？</li>
+                        <li>真的有男人喜欢“不独立”的女生么？</li>
+                    </ul>
+                    <ol class="clearfix">
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                        <li>
+                            <img src="images/mar-hs2.png" width="88" height="100" alt="">
+                            <span>日本传统婚礼</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content4 clearfix">
+        <div class="left fl">
+            <h4>婚纱影楼</h4>
+            <ul>
+                <li><img src="images/mar-yl8.png" width="212" height="280" alt=""></li>
+                <li><img src="images/mar-yl8.png" width="212" height="280" alt=""></li>
+                <li><img src="images/mar-yl8.png" width="212" height="280" alt=""></li>
+                <li><img src="images/mar-yl8.png" width="212" height="280" alt=""></li>
+                <li><img src="images/mar-yl8.png" width="212" height="280" alt=""></li>
+                <li><img src="images/mar-yl8.png" width="212" height="280" alt=""></li>
+                <li><img src="images/mar-yl8.png" width="212" height="280" alt=""></li>
+                <li><img src="images/mar-yl8.png" width="212" height="280" alt=""></li>
+            </ul>
+        </div>
+        <div class="right fr">
+            <div class="top">
+                <div class="title">
+                    <h5 class="fl">婚车租赁</h5>
+                    <span class="fr">更多</span>
+                </div>
+                <ul>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                </ul>
+            </div>
+            <div class="btm">
+                <div class="title">
+                    <h5 class="fl">婚车租赁</h5>
+                    <span class="fr">更多</span>
+                </div>
+                <ul>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                    <li>本人 新购奥迪a6l 16款 望加入平谷婚</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content5 clearfix">
+        <h4>幸福瞬间</h4>
+        <div class="img-lf fl">
+            <div class="img1">
+                <img src="images/mar-xf1.png" alt="">
+            </div>
+            <div class="img1">
+                <img src="images/mar-xf5.png" alt="">
+            </div>
+        </div>
+        <div class="img-rg fr">
+            <div class="img1">
+                <img src="images/mar-xf2.png" alt="">
+            </div>
+            <div class="img1">
+                <img src="images/mar-xf3.png" alt="">
+            </div>
+
+            <div class="img1">
+                <img src="images/mar-xf4.png" alt="">
+            </div>
+            <div class="img1">
+                <img src="images/mar-xf6.png" alt="">
+            </div>
+            <div class="img1">
+                <img src="images/mar-xf7.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="wrap">
+        <h3>关于我们<i>|</i>友情链接<i>|</i>服务条款<i>|</i>隐私政策<i>|</i>留言反馈<i>|</i>使用帮助<i>|</i>广告眼务</h3>
+        <h3>尊守网上追德.遘守《全国人大常委会关于维护互联网安全的决定》及中华人民共和国其他各项有关法律法规</h3>
+        <h3>Copyright2005-2015echang.cnAllrightsreserved 易畅网版权所有</h3>
+        <h3>经當许可证镅号：京ICP证100287号京1CP备：12002820号-1BBSS经营许可证：电信业务审批[2010]字第219号</h3>
+        <h3>电话：（010)89987264客服QQ:2408777819京公网安备：110117000088</h3>
+    </div>
+</div>
+</body>
+</html>

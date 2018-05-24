@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>文化平谷</title>
+    <link rel="stylesheet" href="css/culture.css">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+<div class="header-bg"></div>
+<div class="nav">
+    <ul class="clearfix wrap">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="###">文化动态</a></li>
+        <li><a href="###">文化产业</a></li>
+        <li><a href="###">文化特色</a></li>
+        <li><a href="###">文化遗产</a></li>
+        <li><a href="###">文化专题</a></li>
+        <li><a href="###">文化景点</a></li>
+        <li><a href="###">文化影像</a></li>
+        <li><a href="###">网友互动</a></li>
+    </ul>
+</div>
+
+<div class="wrap">
+    <div class="header">
+        <div id="banner" class="fl">
+            <div id="list" style="left: -879px;">
+                <img src="images/ctr-banner.png" alt=""/>
+                <img src="images/ctr-banner.png" alt=""/>
+                <img src="images/ctr-banner.png" alt=""/>
+                <img src="images/ctr-banner.png" alt=""/>
+                <img src="images/ctr-banner.png" alt=""/>
+                <img src="images/ctr-banner.png" alt=""/>
+                <img src="images/ctr-banner.png" alt=""/>
+            </div>
+            <div id="buttons">
+                <span class="on"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="###" id="prev" class="arrow">&lt;</a>
+            <a href="###" id="next" class="arrow">&gt;</a>
+        </div>
+        <script>
+            window.onload=function() {
+                var prev=document.getElementById("prev");
+                var next=document.getElementById("next");
+                var list=document.getElementById("list");
+                var buttons=document.getElementById("buttons").getElementsByTagName("span");
+                var container=document.getElementById("banner");
+                var index=1;
+                var timer;
+                var animated=false;
+                function shownButton(){
+                    for (var i = 0; i < buttons.length ; i++) {
+                        if( buttons[i].className == 'on'){
+                            buttons[i].className = '';
+                            /* prev和next每click一次，
+                             就会清除一次前一个class为on的span元素，
+                             所以没有必要再去循环下面的span*/
+                            break;
+                        }
+                        //  或者直接遍历清除  buttons[i].className=""；
+                    }
+                    buttons[index -1].className="on";
+                }
+                function animate(offset){
+                    var time = 256;
+                    var inteval = 10;
+                    var speed = offset/(time/inteval);
+                    animated=true;
+                    var newLeft=parseInt(list.style.left) +offset;
+                    function go(){
+                        if ( (speed > 0 && parseInt(list.style.left) < newLeft) || (speed < 0 && parseInt(list.style.left) > newLeft)) {
+                            list.style.left = parseInt(list.style.left) + speed + 'px';
+                            setTimeout(go, inteval);
+                        }
+                        else
+                        {
+                            animated=false;
+                            // list.style.left=newLeft+"px";
+                            if (newLeft >-879) {
+                                list.style.left=-4395+"px";
+                            }
+                            if (newLeft <-4395) {
+                                list.style.left=-879+"px";
+                            }
+                        }
+                    }
+                    go();
+                }
+
+                prev.onclick=function(){
+                    /*添加一个if判断index为1时，如果继续往前滚的话就让index返回第五个span
+                    但是当快速点击arrow时会出现一种span点亮延迟的情况。可以尝试把判断index是否大于1或小于5的情况放进
+                    判断是否animated的if语句中，先判断能不能点击，再点亮。
+                    */
+                    if (!animated) {
+                        if (index==1) {
+                            index=5;
+                        }else {
+                            index -=1;
+                        }
+
+                        shownButton();
+                        animate(879);
+                    }
+
+
+                };
+                next.onclick=function(){
+
+
+
+                    if (!animated) {
+                        if (index==5) {
+                            index=1;
+                        }else {
+                            index +=1;
+                        }
+                        shownButton();
+                        animate(-879);
+                    }
+                };
+                for (var i = 0; i < buttons.length; i++) {
+                    buttons[i].onclick=function(){
+                        if (this.className=="on") {
+                            return;
+                        }
+                        var myIndex=parseInt(this.getAttribute("index"));
+                        var offset=-879*(myIndex-index);
+                        if (!animated) {
+                            animate(offset);
+                        }
+                        index=myIndex;
+                        shownButton();
+
+                    }
+                }
+
+                function play(){
+                    timer=setInterval(function(){
+                        next.onclick();
+                    },3000);
+                }
+                function stop(){
+                    clearInterval(timer);
+                }
+                play();
+                container.onmouseover=stop;
+                container.onmouseout=play;
+            }
+        </script>
+        <div class="casual fr">
+            <h2>休闲平谷 • 桃花之都</h2>
+            <p>风光大片.你是导演！万亩桃花怒放妖烧.而其中最美的，就是您的笑脸。</p>
+            <ul>
+                <li class="clearfix">
+                    <img src="images/ctr-xx1.png" alt="" class="fl">
+                    <div class="fr">
+                        <strong>平谷区益民书屋</strong>
+                        <span>近日，平谷区图书馆共为全区301个益民书屋配送出版物</span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <img src="images/ctr-xx1.png" alt="" class="fl">
+                    <div class="fr">
+                        <strong>平谷区益民书屋</strong>
+                        <span>近日，平谷区图书馆共为全区301个益民书屋配送出版物</span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <img src="images/ctr-xx1.png" alt="" class="fl">
+                    <div class="fr">
+                        <strong>平谷区益民书屋</strong>
+                        <span>近日，平谷区图书馆共为全区301个益民书屋配送出版物</span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <img src="images/ctr-xx1.png" alt="" class="fl">
+                    <div class="fr">
+                        <strong>平谷区益民书屋</strong>
+                        <span>近日，平谷区图书馆共为全区301个益民书屋配送出版物</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <img src="images/ctr-ad1.png" alt="">
+    </div>
+
+    <div class="content1 clearfix">
+        <div class="video fl">
+            <div class="title clearfix">
+                <h4 class="fl">文化影像</h4>
+                <span class="fr">更多&gt;&gt;</span>
+            </div>
+            <ul>
+                <li>
+                    <img src="images/ctr-video1.png" alt="">
+                    <p>休闲大会花落平谷</p>
+                </li>
+                <li>
+                    <img src="images/ctr-video1.png" alt="">
+                    <p>休闲大会花落平谷</p>
+                </li>
+                <li>
+                    <img src="images/ctr-video1.png" alt="">
+                    <p>休闲大会花落平谷</p>
+                </li>
+                <li>
+                    <img src="images/ctr-video1.png" alt="">
+                    <p>休闲大会花落平谷</p>
+                </li>
+                <li>
+                    <img src="images/ctr-video1.png" alt="">
+                    <p>休闲大会花落平谷</p>
+                </li>
+                <li>
+                    <img src="images/ctr-video1.png" alt="">
+                    <p>休闲大会花落平谷</p>
+                </li>
+            </ul>
+        </div>
+        <div class="topic fr">
+            <div class="top clearfix">
+                <div class="title clearfix">
+                    <h4 class="fl">访谈</h4>
+                    <span class="fr">更多&gt;&gt;</span>
+                </div>
+                <div class="fl">
+                    <img src="images/ctr-ft1.png" width="150" height="160" alt="">
+                    <p>访谈内容</p>
+                </div>
+                <div class="fl">
+                    <img src="images/ctr-ft1.png" width="150" height="160" alt="">
+                    <p>访谈内容</p>
+                </div>
+            </div>
+            <div class="btm clearfix">
+                <div class="title clearfix">
+                    <h4 class="fl">微话题</h4>
+                    <span class="fr">更多&gt;&gt;</span>
+                </div>
+                <div style="margin-bottom: 15px;" class="clearfix">
+                    <div class="fl">
+                        <img src="images/ctr-v1.png" alt="" width="147" height="83">
+                    </div>
+                    <div class="fr pg">
+                        <strong>平谷城区小角落的改善</strong>
+                        <p>每一次纸节的改变.都是在提升我们的思想.并悄然的改变若我们生活的城市</p>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div class="fl">
+                        <img src="images/ctr-v1.png" alt="" width="147" height="83">
+                    </div>
+                    <div class="fr pg">
+                        <strong>平谷城区小角落的改善</strong>
+                        <p>每一次纸节的改变.都是在提升我们的思想.并悄然的改变若我们生活的城市</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content2 clearfix">
+        <div class="title clearfix">
+            <h4 class="fl">文化专题</h4>
+            <span class="fr">更多&gt;&gt;</span>
+        </div>
+        <ul>
+            <li>
+                <div class="fl">
+                    <img src="images/ctr-zt1.png" width="232" height="160" alt="">
+                </div>
+                <div class="fr">
+                    <strong>第二届北京市民快乐冰雪季</strong>
+                    <p>为实施全民健身国家战略，准进我市冬李全民鬱身活动蓬勃开W,引导市民积极参与冰雪运动、普及冬奧会和冰雪费身知识，提升市民冰雪健身意识和身体素质，扩大参与冰……洋细</p>
+                </div>
+            </li>
+            <li>
+                <div class="fl">
+                    <img src="images/ctr-zt1.png" width="232" height="160" alt="">
+                </div>
+                <div class="fr">
+                    <strong>第二届北京市民快乐冰雪季</strong>
+                    <p>为实施全民健身国家战略，准进我市冬李全民鬱身活动蓬勃开W,引导市民积极参与冰雪运动、普及冬奧会和冰雪费身知识，提升市民冰雪健身意识和身体素质，扩大参与冰……洋细</p>
+                </div>
+            </li>
+            <li>
+                <div class="fl">
+                    <img src="images/ctr-zt1.png" width="232" height="160" alt="">
+                </div>
+                <div class="fr">
+                    <strong>第二届北京市民快乐冰雪季</strong>
+                    <p>为实施全民健身国家战略，准进我市冬李全民鬱身活动蓬勃开W,引导市民积极参与冰雪运动、普及冬奧会和冰雪费身知识，提升市民冰雪健身意识和身体素质，扩大参与冰……洋细</p>
+                </div>
+            </li>
+            <li>
+                <div class="fl">
+                    <img src="images/ctr-zt1.png" width="232" height="160" alt="">
+                </div>
+                <div class="fr">
+                    <strong>第二届北京市民快乐冰雪季</strong>
+                    <p>为实施全民健身国家战略，准进我市冬李全民鬱身活动蓬勃开W,引导市民积极参与冰雪运动、普及冬奧会和冰雪费身知识，提升市民冰雪健身意识和身体素质，扩大参与冰……洋细</p>
+                </div>
+            </li>
+        </ul>
+        <div><img src="images/ctr-ad2.png" width="1200" height="100" alt=""></div>
+    </div>
+    <div class="content3 clearfix">
+        <div class="title clearfix">
+            <h4 class="fl">旅游分类</h4>
+            <span class="fr">更多&gt;&gt;</span>
+        </div>
+        <ul>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content3 clearfix">
+        <div class="title clearfix">
+            <h4 class="fl">十六景</h4>
+            <span class="fr">更多&gt;&gt;</span>
+        </div>
+        <ul>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content4 clearfix">
+        <div class="title clearfix">
+            <h4 class="fl">寺庙志略</h4>
+            <span class="fr">更多&gt;&gt;</span>
+        </div>
+        <div class="ctr-sm">
+            <ul class="clearfix">
+                <li class="clearfix"><img src="images/ctr-sm1.png" alt="" width="232" height="161" class="fl">
+                    <div class="fr">
+                        <h6>轩辕庙</h6>
+                        <p>轩辕庙，坐北朝南,东西宽约七八丈,南北长约七八丈，南为山门，形如门楼.院内有2棵槐树，门内西侧1通石碑，现碑座及#軍修轩辕庙记?残碑尚存?正殿三间，殿内......详细</p>
+                    </div>
+                </li>
+                <li class="clearfix"><img src="images/ctr-sm1.png" alt="" width="232" height="161" class="fl">
+                    <div class="fr">
+                        <h6>轩辕庙</h6>
+                        <p>轩辕庙，坐北朝南,东西宽约七八丈,南北长约七八丈，南为山门，形如门楼.院内有2棵槐树，门内西侧1通石碑，现碑座及#軍修轩辕庙记?残碑尚存?正殿三间，殿内......详细</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="ban"><img src="images/ctr-ad3.png" width="1200" height="102" alt=""></div>
+        </div>
+    </div>
+    <div class="content3 clearfix">
+        <div class="title clearfix">
+            <h4 class="fl">文化产业</h4>
+            <span class="fr">更多&gt;&gt;</span>
+        </div>
+        <ul>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="images/ctr-lv1.png" width="285" height="240" alt="">
+                    <p>乡村游</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content5 clearfix">
+        <div class="title clearfix">
+            <h4 class="fl">文化特色</h4>
+            <span class="fr">更多&gt;&gt;</span>
+        </div>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-ts1.png" alt=""></dd>
+        </dl>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-ts1.png" alt=""></dd>
+        </dl>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-ts1.png" alt=""></dd>
+        </dl>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-ts1.png" alt=""></dd>
+        </dl>
+    </div>
+    <div class="content5 clearfix">
+        <div class="title clearfix">
+            <h4 class="fl">文化遗产</h4>
+            <span class="fr">更多&gt;&gt;</span>
+        </div>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-yc1.png" alt=""></dd>
+        </dl>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-yc1.png" alt=""></dd>
+        </dl>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-yc1.png" alt=""></dd>
+        </dl>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-yc1.png" alt=""></dd>
+        </dl>
+        <dl>
+            <dt>遗产</dt>
+            <dd>平谷区平谷调</dd>
+            <dd>平谷抗日歌谣</dd>
+            <dd>平谷方言</dd>
+            <dd>荆条工具编制技艺</dd>
+            <dd><img src="images/ctr-yc1.png" alt=""></dd>
+        </dl>
+    </div>
+    <div class="content6 clearfix">
+        <div class="title clearfix">
+            <h4 class="fl">网友互动</h4>
+            <span class="fr">更多&gt;&gt;</span>
+        </div>
+        <div class="youth clearfix">
+            <div><img src="images/ctr-qc.png" class="fl" width="514" height="143" alt=""></div>
+            <div class="fr">
+                <h6>易畅志愿服务团队走进特教中心</h6>
+                <p>阳春三月，万物复苏，在这个充满希望的季节里，洋溢藿一种浓郁的气息,那就是雷锋培神，3月4日上午,易畅志愿眼务团队带着无限的真攀和关爱走进特教中心，为特敦.一详细</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="wrap">
+        <h3>关于我们<i>|</i>友情链接<i>|</i>服务条款<i>|</i>隐私政策<i>|</i>留言反馈<i>|</i>使用帮助<i>|</i>广告眼务</h3>
+        <h3>尊守网上追德.遘守《全国人大常委会关于维护互联网安全的决定》及中华人民共和国其他各项有关法律法规</h3>
+        <h3>Copyright2005-2015echang.cnAllrightsreserved 易畅网版权所有</h3>
+        <h3>经當许可证镅号：京ICP证100287号京1CP备：12002820号-1BBSS经营许可证：电信业务审批[2010]字第219号</h3>
+        <h3>电话：（010)89987264客服QQ:2408777819京公网安备：110117000088</h3>
+    </div>
+</div>
+</body>
+</html>

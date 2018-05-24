@@ -1,0 +1,198 @@
+.logo{
+    float: left;
+    width: 158px;
+    height: 47px;
+    background: url("../images/mar-logo.png") no-repeat;
+    padding-top: 26px;
+    margin-top: 26px;
+}
+.nav{
+    width: 100%;
+    height: 44px;
+    background-color: #FB4D7D;
+    border-bottom: 1px solid  #FED2DE;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+.nav ul{
+    display: flex;
+}
+.nav ul li{
+    line-height: 44px;
+    margin: auto;
+}
+.nav ul li a{
+    color: #fff;
+}
+
+.lunbo {
+    width: 910px;
+    height: 560px;
+    position: relative;
+    overflow: hidden;
+}
+.imgs {
+    position: absolute;
+    top: 0;
+}
+.imgs li {
+    float: left;
+    width: 910px;
+    height: 560px;
+}
+.btns {
+    position: absolute;
+    left: 68px;
+    bottom: 10px;
+    text-align: center;
+}
+.btns li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.btns .active {
+    background: #FB4D7D;
+}
+.prev,.next {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 80px;
+    margin-top: -40px;
+    font-size: 60px;
+    font-family: '宋体';
+    color: #fff;
+    text-align: center;
+    line-height: 80px;
+    background: rgba(0,0,0,.5);
+}
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
+}
+.content1{
+    margin-bottom: 40px;
+}
+.bussin{
+    width: 268px;
+    border: 1px solid #EFEFEF;
+}
+.bussin ul{
+    padding: 15px 15px 0 15px;
+}
+.bussin ul li{
+    line-height: 29px;
+}
+.bussin ul li:nth-child(1){
+    font-size: 20px;
+    color: #FA4D7D;
+}
+.bussin ul li span{
+    margin-right: 8px;
+    font-size: 14px;
+    color: #656565;
+}
+.content2{
+    margin-bottom: 44px;
+}
+.content2 ul li{
+    float: left;
+    margin: 0 20px 20px 0;
+}
+.content2 ul li:nth-child(6n){
+    margin-right: 0;
+}
+.content3{
+    margin-bottom: 40px;
+}
+.content3 .left .hsimg{
+    padding-right: 20px;
+}
+.content3 .left h6{
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FA4D7D;
+}
+.content3 .left p{
+    width: 300px;
+    height: 60px;
+    margin-bottom: 26px;
+    line-height: 22px;
+    color: #656565;
+}
+.content3 .left ul{
+    margin-bottom: 18px;
+}
+.content3 .left ul li{
+    line-height: 24px;
+    color: #656565;
+}
+.content3 .left ol li{
+    float: left;
+    margin-right: 20px;
+}
+.content3 .left ol li span{
+    display: block;
+    color: #656565;
+}
+.content4 .left{
+    width: 910px;
+}
+.content4 .left ul li{
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.content4 .left ul li:nth-child(4n){
+    margin-right: 0;
+}
+.content4 .right{
+    padding-top: 40px;
+}
+.content4 .right .title{
+    width: 270px;
+    height: 34px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E3E3E3;
+}
+h4{
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid #FA4D7D;
+    font-size: 20px;
+    color: #FA4D7D;
+}
+.content4 .right h5{
+    font-size: 24px;
+    font-weight: bold;
+    color: #FA4D7D;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #FA4D7D;
+}
+.content4 .right ul li{
+    font-size: 14px;
+    line-height: 30px;
+    color: #434343;
+}
+.content5 div{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 18px;
+}
+.content5 .img-lf{
+    width: 374px;
+}
+.content5 .img-rg{
+    width: 805px;
+}
+.content5 .img-rg div:nth-child(3),.content5 .img-rg div:nth-child(5){
+    margin-right: 0;
+}
